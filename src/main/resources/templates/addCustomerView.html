@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    a.button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border-radius: 4px;
+    }
+    .navigationContent {
+        display: flex;
+        gap: 1em;
+        font-size: 18px;
+    }
+    .navigationBar {
+        font-family: Georgia, serif;
+        color: white;
+        background-color: DeepSkyBlue;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 20px;
+    }
+    .navText {
+        color: white;
+    }
+    .labelText {
+        font-family: Georgia, serif;
+    }
+    </style>
+    <title>Title</title>
+</head>
+<body>
+<div class="navigationBar">
+    <h2>Money Bin Inc.</h2>
+    <div class="navigationContent">
+        <a class="navText" href="/">Home</a>
+        <a class="navText" href="/Pricing">Pricing</a>
+        <a class="navText" href="/Contact">Contact</a>
+        <a class="navText" href="/Career">Career</a>
+    </div>
+</div>
+<div align="center">
+    <h1>Add new prospect</h1>
+    <form th:action="@{/addCustomer}" method="post" th:object="${customer}">
+        <tr>
+            <th class="labelText">Name</th>
+            <input type="text" size="10" name="name" th:field="*{name}"/>
+            <br/>
+        </tr>
+        <br/>
+        <tr>
+            <th class="labelText">Total loan</th>
+            <input type="text" size="10" name="totalLoan" th:field="*{totalLoan}"/>
+            <br/>
+        </tr>
+        <br/>
+        <tr>
+            <th class="labelText">Interest</th>
+            <input type="text" size="10" name="interest" th:field="*{interest}"/>
+            <br/>
+        </tr>
+        <br/>
+        <tr>
+            <th class="labelText">Years</th>
+            <input type="text" size="10" name="years" th:field="*{years}"/>
+            <br/>
+        </tr>
+        <br/>
+        <button type="submit">Add customer</button>
+    </form>
+</div>
+</body>
+</html>
